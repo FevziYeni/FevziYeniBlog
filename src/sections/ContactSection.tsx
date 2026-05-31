@@ -43,6 +43,13 @@ export default function ContactSection({ whatsappHref }: ContactSectionProps) {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-cyan-300 to-violet-400 p-8 text-slate-950 lg:p-10">
+            <div className="mb-8 overflow-hidden rounded-3xl border border-slate-950/10 shadow-2xl shadow-slate-950/20">
+              <img
+                src="/images/web-design-hero.webp"
+                alt="Web sitesi projesi için iletişim görseli"
+                className="h-56 w-full object-cover"
+              />
+            </div>
             <Target className="h-10 w-10" />
             <h2 className="mt-8 text-4xl font-black tracking-tight sm:text-5xl">
               Birlikte güçlü bir web vitrini kuralım.

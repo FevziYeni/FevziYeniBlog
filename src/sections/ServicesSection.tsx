@@ -22,17 +22,28 @@ export default function ServicesSection({ isPage = false }: ServicesSectionProps
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <motion.article
               key={service.title}
               whileHover={{ y: -8 }}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition hover:bg-white/[0.07]"
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl transition hover:bg-white/[0.07]"
             >
-              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
-                {service.icon}
+              <div className="relative h-32 overflow-hidden">
+                <img
+                  src="/images/web-design-hero.webp"
+                  alt={`${service.title} için web tasarım görseli`}
+                  className="h-full w-full object-cover opacity-80"
+                  style={{ objectPosition: `${35 + index * 14}% center` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-950/10 via-slate-950/45 to-slate-950" />
+                <div className="absolute bottom-4 left-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-300/15 text-cyan-200 ring-1 ring-white/10 backdrop-blur">
+                  {service.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-black">{service.title}</h3>
-              <p className="mt-4 leading-7 text-slate-400">{service.description}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-black">{service.title}</h3>
+                <p className="mt-4 leading-7 text-slate-400">{service.description}</p>
+              </div>
             </motion.article>
           ))}
         </div>

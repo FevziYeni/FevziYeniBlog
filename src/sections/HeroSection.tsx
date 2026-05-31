@@ -83,7 +83,14 @@ export default function HeroSection({ whatsappHref }: HeroSectionProps) {
                 </div>
 
                 <div className="grid gap-4">
-                  <div className="rounded-3xl bg-gradient-to-br from-cyan-300 to-violet-400 p-6 text-slate-950">
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-300 to-violet-400 p-6 text-slate-950">
+                    <img
+                      src="/images/web-design-hero.webp"
+                      alt="Modern web tasarım arayüzü ve responsive site mockup görseli"
+                      className="absolute inset-0 h-full w-full object-cover opacity-35 mix-blend-multiply"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-200/80 via-white/40 to-slate-950/10" />
+                    <div className="relative">
                     <div className="mb-8 flex items-center justify-between">
                       <BadgeCheck className="h-7 w-7" />
                       <span className="rounded-full bg-slate-950/10 px-3 py-1 text-xs font-bold">
@@ -94,6 +101,7 @@ export default function HeroSection({ whatsappHref }: HeroSectionProps) {
                     <p className="mt-3 text-sm font-medium text-slate-800">
                       Modern tasarım, hızlı açılış ve doğru mesaj ile ziyaretçiyi müşteriye çeviririz.
                     </p>
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">

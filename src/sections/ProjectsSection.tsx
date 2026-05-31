@@ -25,14 +25,20 @@ export default function ProjectsSection({ isPage = false }: ProjectsSectionProps
               key={project.title}
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl"
             >
-              <div className="h-44 bg-gradient-to-br from-cyan-300/20 via-violet-400/20 to-slate-950 p-5">
-                <div className="flex items-start justify-between">
+              <div className="relative h-48 overflow-hidden p-5">
+                <img
+                  src="/images/web-design-hero.webp"
+                  alt={`${project.title} proje sunum görseli`}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-950/20 via-slate-950/50 to-slate-950" />
+                <div className="relative flex items-start justify-between">
                   <span className="rounded-full bg-white/10 px-3 py-2 text-xs font-bold text-white">
                     {project.status}
                   </span>
                   <ExternalLink className="h-5 w-5 text-slate-300 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
-                <div className="mt-14 flex items-center gap-2 text-sm text-cyan-200">
+                <div className="relative mt-20 flex items-center gap-2 text-sm text-cyan-200">
                   <BriefcaseBusiness className="h-4 w-4" />
                   {project.category}
                 </div>

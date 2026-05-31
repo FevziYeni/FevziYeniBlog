@@ -35,6 +35,13 @@ export default function SearchIntentSection() {
 
         <div className="mt-8 grid gap-6 rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl lg:grid-cols-[0.85fr_1.15fr] lg:p-8">
           <div>
+            <div className="mb-7 overflow-hidden rounded-3xl border border-white/10">
+              <img
+                src="/images/web-design-hero.webp"
+                alt="SEO uyumlu web sitesi ve dijital vitrin görseli"
+                className="h-52 w-full object-cover"
+              />
+            </div>
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
               Sık aranan konular
             </p>
