@@ -4,9 +4,13 @@ import SectionHeader from '../components/SectionHeader';
 
 const highlights = ['Temiz Kod', 'Responsive UI', 'Satış Odaklı Tasarım'];
 
-export default function AboutSection() {
+type AboutSectionProps = {
+  isPage?: boolean;
+};
+
+export default function AboutSection({ isPage = false }: AboutSectionProps) {
   return (
-    <section id="hakkimda" className="relative z-10 py-20">
+    <section id="hakkimda" className={`relative z-10 pb-20 ${isPage ? 'pt-32 lg:pt-40' : 'pt-20'}`}>
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeader
@@ -15,6 +19,13 @@ export default function AboutSection() {
           />
 
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 text-slate-300 backdrop-blur-xl lg:p-9">
+            <div className="mb-7 overflow-hidden rounded-3xl border border-white/10">
+              <img
+                src="/images/visuals/about-workspace.webp"
+                alt="Profesyonel web sitesi tasarım çalışma alanı"
+                className="h-56 w-full object-cover"
+              />
+            </div>
             <p className="text-lg leading-8">
               Frontend tarafında React, TypeScript ve Tailwind CSS ile modern arayüzler
               geliştiriyorum. Benim için iyi bir web sitesi; hızlı açılan, mobilde güçlü

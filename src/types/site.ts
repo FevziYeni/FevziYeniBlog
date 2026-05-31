@@ -5,10 +5,23 @@ export type NavItem = {
   href: string;
 };
 
+export type SeoMeta = {
+  title: string;
+  description: string;
+  path: string;
+  keywords?: string[];
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type Service = {
   icon: ReactNode;
   title: string;
   description: string;
+  imageUrl: string;
 };
 
 export type Project = {
@@ -17,16 +30,16 @@ export type Project = {
   description: string;
   stack: string[];
   status: string;
-  demoUrl?: string;
-  repoUrl?: string;
+  liveUrl?: string;
+  imageUrl?: string;
 };
-
 export type BlogPost = {
   title: string;
   category: string;
   readTime: string;
   description: string;
   slug: string;
+  imageUrl: string;
 };
 
 export type ProcessStep = {

@@ -10,13 +10,13 @@ export default function Footer() {
           © {year} {personalInfo.name}. Tüm hakları saklıdır.
         </p>
         <div className="flex gap-5">
-          <a href="#anasayfa" className="transition hover:text-white">
-            Yukarı çık
+          <a href="/" className="transition hover:text-white">
+            Anasayfa
           </a>
-          <a href="#projeler" className="transition hover:text-white">
+          <a href="/projeler" className="transition hover:text-white">
             Projeler
           </a>
-          <a href="#iletisim" className="transition hover:text-white">
+          <a href="/iletisim" className="transition hover:text-white">
             İletişim
           </a>
         </div>
