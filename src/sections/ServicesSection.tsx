@@ -3,9 +3,13 @@ import Container from '../components/Container';
 import SectionHeader from '../components/SectionHeader';
 import { services } from '../data/site';
 
-export default function ServicesSection() {
+type ServicesSectionProps = {
+  isPage?: boolean;
+};
+
+export default function ServicesSection({ isPage = false }: ServicesSectionProps) {
   return (
-    <section id="hizmetler" className="relative z-10 py-20">
+    <section id="hizmetler" className={`relative z-10 pb-20 ${isPage ? 'pt-32 lg:pt-40' : 'pt-20'}`}>
       <Container>
         <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeader

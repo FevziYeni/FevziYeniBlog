@@ -4,9 +4,13 @@ import SectionHeader from '../components/SectionHeader';
 
 const highlights = ['Temiz Kod', 'Responsive UI', 'Satış Odaklı Tasarım'];
 
-export default function AboutSection() {
+type AboutSectionProps = {
+  isPage?: boolean;
+};
+
+export default function AboutSection({ isPage = false }: AboutSectionProps) {
   return (
-    <section id="hakkimda" className="relative z-10 py-20">
+    <section id="hakkimda" className={`relative z-10 pb-20 ${isPage ? 'pt-32 lg:pt-40' : 'pt-20'}`}>
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeader

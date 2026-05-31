@@ -3,9 +3,13 @@ import Container from '../components/Container';
 import SectionHeader from '../components/SectionHeader';
 import { projects } from '../data/site';
 
-export default function ProjectsSection() {
+type ProjectsSectionProps = {
+  isPage?: boolean;
+};
+
+export default function ProjectsSection({ isPage = false }: ProjectsSectionProps) {
   return (
-    <section id="projeler" className="relative z-10 py-20">
+    <section id="projeler" className={`relative z-10 pb-20 ${isPage ? 'pt-32 lg:pt-40' : 'pt-20'}`}>
       <Container>
         <div className="mb-12">
           <SectionHeader

@@ -3,9 +3,13 @@ import Container from '../components/Container';
 import SectionHeader from '../components/SectionHeader';
 import { blogPosts } from '../data/site';
 
-export default function BlogSection() {
+type BlogSectionProps = {
+  isPage?: boolean;
+};
+
+export default function BlogSection({ isPage = false }: BlogSectionProps) {
   return (
-    <section id="blog" className="relative z-10 py-20">
+    <section id="blog" className={`relative z-10 pb-20 ${isPage ? 'pt-32 lg:pt-40' : 'pt-20'}`}>
       <Container>
         <div className="mb-12 grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <SectionHeader eyebrow="Blog" title="Notlar, fikirler ve frontend yazıları." />
