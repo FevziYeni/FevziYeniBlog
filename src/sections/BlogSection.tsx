@@ -20,17 +20,17 @@ export default function BlogSection({ isPage = false }: BlogSectionProps) {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((post) => (
             <article
               key={post.slug}
               className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.07]"
             >
               <div className="relative h-36 overflow-hidden">
                 <img
-                  src="/images/web-design-hero.webp"
+                  src={post.imageUrl}
                   alt={`${post.title} blog kapak görseli`}
                   className="h-full w-full object-cover opacity-80"
-                  style={{ objectPosition: `${30 + index * 22}% center` }}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
               </div>

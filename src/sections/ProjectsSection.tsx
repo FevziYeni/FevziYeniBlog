@@ -21,15 +21,23 @@ export default function ProjectsSection({ isPage = false }: ProjectsSectionProps
 
         <div className="grid gap-6 lg:grid-cols-3">
           {projects.map((project) => (
-            <article
+            <a
               key={project.title}
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${project.title} canlı sitesini aç`}
+              className="group block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl transition hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.07]"
             >
               <div className="relative h-48 overflow-hidden p-5">
                 <img
-                  src="/images/web-design-hero.webp"
+                  src={project.imageUrl ?? '/images/web-design-hero.webp'}
                   alt={`${project.title} proje sunum görseli`}
                   className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.src = '/images/web-design-hero.webp';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-950/20 via-slate-950/50 to-slate-950" />
                 <div className="relative flex items-start justify-between">
@@ -58,17 +66,14 @@ export default function ProjectsSection({ isPage = false }: ProjectsSectionProps
                   ))}
                 </div>
                 {project.liveUrl ? (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                  <span
                     className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan-200 transition hover:text-white"
                   >
                     Canlı siteyi aç <ExternalLink className="h-4 w-4" />
-                  </a>
+                  </span>
                 ) : null}
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </Container>

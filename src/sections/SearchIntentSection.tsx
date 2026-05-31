@@ -37,7 +37,7 @@ export default function SearchIntentSection() {
           <div>
             <div className="mb-7 overflow-hidden rounded-3xl border border-white/10">
               <img
-                src="/images/web-design-hero.webp"
+                src="/images/visuals/service-seo.webp"
                 alt="SEO uyumlu web sitesi ve dijital vitrin görseli"
                 className="h-52 w-full object-cover"
               />

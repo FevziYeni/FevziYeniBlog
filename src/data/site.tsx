@@ -32,6 +32,9 @@ export const navItems: NavItem[] = [
   { label: 'İletişim', href: '/iletisim' },
 ];
 
+const screenshotUrl = (url: string) =>
+  `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200`;
+
 export const seoPages: Record<string, SeoMeta> = {
   '/': {
     title: 'Web Sitesi Yaptırmak İsteyenler İçin Freelance Web Tasarım | Fevzi Yeni',
@@ -137,24 +140,28 @@ export const services: Service[] = [
     title: 'Kurumsal Web Sitesi',
     description:
       'Markanı güvenilir gösteren, hızlı açılan, mobil uyumlu ve profesyonel web siteleri geliştiririm.',
+    imageUrl: '/images/visuals/service-corporate.webp',
   },
   {
     icon: <Layers3 className="h-6 w-6" />,
     title: 'Çok Sayfalı Site Yapısı',
     description:
       'Anasayfa, hizmetler, projeler, blog ve iletişim gibi sayfaları net bir mimariyle ayırırım.',
+    imageUrl: '/images/visuals/service-architecture.webp',
   },
   {
     icon: <Code2 className="h-6 w-6" />,
     title: 'React Frontend Geliştirme',
     description:
       'React, TypeScript ve Tailwind CSS ile temiz kodlu, ölçeklenebilir ve bakımı kolay arayüzler kurarım.',
+    imageUrl: '/images/visuals/service-frontend.webp',
   },
   {
     icon: <Search className="h-6 w-6" />,
     title: 'Web Görünürlük Analizi',
     description:
       'Mevcut web siteni veya dijital görünümünü hız, mobil uyum, güven ve dönüşüm açısından incelerim.',
+    imageUrl: '/images/visuals/service-seo.webp',
   },
 ];
 
@@ -167,6 +174,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'Tailwind', 'Responsive UI'],
     status: 'Canlıda',
     liveUrl: 'https://www.yenirminsaat.com',
+    imageUrl: screenshotUrl('https://www.yenirminsaat.com'),
   },
   {
     title: 'Biz Aydın Grup',
@@ -176,6 +184,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'Tailwind', 'Web Tasarım'],
     status: 'Canlıda',
     liveUrl: 'https://xn--bizaydngrup-4zb.com/',
+    imageUrl: screenshotUrl('https://xn--bizaydngrup-4zb.com/'),
   },
   {
     title: 'Fevzi Yeni Portfolio',
@@ -185,6 +194,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'Tailwind', 'Vercel'],
     status: 'Canlıda',
     liveUrl: 'https://fevzi-yeni-blog.vercel.app',
+    imageUrl: screenshotUrl('https://fevzi-yeni-blog.vercel.app'),
   },
 ];
 
@@ -196,6 +206,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Hero alanı, güven unsurları, sosyal kanıt ve doğru CTA yapısı müşteri kararını nasıl etkiler?',
     slug: 'landing-page-satis-etkisi',
+    imageUrl: '/images/visuals/blog-landing.webp',
   },
   {
     title: 'React + TypeScript ile Temiz Component Mimarisi',
@@ -204,6 +215,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Componentleri okunabilir, yeniden kullanılabilir ve büyütülebilir şekilde organize etme yaklaşımım.',
     slug: 'react-typescript-component-mimarisi',
+    imageUrl: '/images/visuals/service-frontend.webp',
   },
   {
     title: 'Yerel İşletmeler İçin Web Sitesi Kontrol Listesi',
@@ -212,6 +224,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'WhatsApp butonu, harita, hizmet alanları, yorumlar ve hızlı iletişim bölümleri neden kritik?',
     slug: 'yerel-isletme-web-kontrol-listesi',
+    imageUrl: '/images/visuals/blog-local-business.webp',
   },
 ];
 

@@ -21,6 +21,7 @@ export type Service = {
   icon: ReactNode;
   title: string;
   description: string;
+  imageUrl: string;
 };
 
 export type Project = {
@@ -30,6 +31,7 @@ export type Project = {
   stack: string[];
   status: string;
   liveUrl?: string;
+  imageUrl?: string;
 };
 export type BlogPost = {
   title: string;
@@ -37,6 +39,7 @@ export type BlogPost = {
   readTime: string;
   description: string;
   slug: string;
+  imageUrl: string;
 };
 
 export type ProcessStep = {

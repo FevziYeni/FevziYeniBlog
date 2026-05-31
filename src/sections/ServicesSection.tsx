@@ -22,7 +22,7 @@ export default function ServicesSection({ isPage = false }: ServicesSectionProps
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.article
               key={service.title}
               whileHover={{ y: -8 }}
@@ -30,10 +30,10 @@ export default function ServicesSection({ isPage = false }: ServicesSectionProps
             >
               <div className="relative h-32 overflow-hidden">
                 <img
-                  src="/images/web-design-hero.webp"
+                  src={service.imageUrl}
                   alt={`${service.title} için web tasarım görseli`}
                   className="h-full w-full object-cover opacity-80"
-                  style={{ objectPosition: `${35 + index * 14}% center` }}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-950/10 via-slate-950/45 to-slate-950" />
                 <div className="absolute bottom-4 left-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-300/15 text-cyan-200 ring-1 ring-white/10 backdrop-blur">
