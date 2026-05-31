@@ -12,6 +12,11 @@ export type SeoMeta = {
   keywords?: string[];
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type Service = {
   icon: ReactNode;
   title: string;

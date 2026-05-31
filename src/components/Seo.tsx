@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { personalInfo } from '../data/site';
+import { personalInfo, seoFaqs } from '../data/site';
 import type { SeoMeta } from '../types/site';
 
 type SeoProps = {
@@ -31,10 +31,24 @@ function upsertCanonical(href: string) {
   element.setAttribute('href', href);
 }
 
+function upsertJsonLd(id: string, data: Record<string, unknown>) {
+  let element = document.head.querySelector<HTMLScriptElement>(`script#${id}`);
+
+  if (!element) {
+    element = document.createElement('script');
+    element.id = id;
+    element.type = 'application/ld+json';
+    document.head.appendChild(element);
+  }
+
+  element.textContent = JSON.stringify(data);
+}
+
 export default function Seo({ meta }: SeoProps) {
   useEffect(() => {
     const canonicalUrl = `${personalInfo.siteUrl}${meta.path === '/' ? '' : meta.path}`;
     const imageUrl = `${personalInfo.siteUrl}/logo.png`;
+    const profileUrl = `${personalInfo.siteUrl}/hakkimda`;
 
     document.title = meta.title;
     upsertMeta('meta[name="description"]', { name: 'description', content: meta.description });
@@ -52,6 +66,7 @@ export default function Seo({ meta }: SeoProps) {
       content: meta.description,
     });
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' });
+    upsertMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'tr_TR' });
     upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl });
     upsertMeta('meta[property="og:image"]', { property: 'og:image', content: imageUrl });
     upsertMeta('meta[name="twitter:card"]', {
@@ -64,6 +79,75 @@ export default function Seo({ meta }: SeoProps) {
       content: meta.description,
     });
     upsertCanonical(canonicalUrl);
+    upsertJsonLd('person-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: personalInfo.name,
+      jobTitle: personalInfo.role,
+      url: personalInfo.siteUrl,
+      image: imageUrl,
+      email: personalInfo.email,
+      telephone: personalInfo.phone,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'İstanbul',
+        addressCountry: 'TR',
+      },
+      sameAs: [personalInfo.github, personalInfo.linkedin],
+    });
+    upsertJsonLd('service-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: personalInfo.brandName,
+      url: personalInfo.siteUrl,
+      image: imageUrl,
+      description:
+        'Web sitesi yaptırmak isteyen işletmeler için kurumsal web tasarım, React frontend geliştirme ve SEO temel kurulumu.',
+      founder: {
+        '@type': 'Person',
+        name: personalInfo.name,
+        url: profileUrl,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Türkiye',
+      },
+      serviceType: [
+        'Kurumsal web sitesi',
+        'Freelance web tasarım',
+        'React frontend geliştirme',
+        'SEO uyumlu web sitesi',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: personalInfo.phone,
+        contactType: 'sales',
+        availableLanguage: ['tr'],
+      },
+    });
+    upsertJsonLd('website-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: personalInfo.brandName,
+      url: personalInfo.siteUrl,
+      inLanguage: 'tr-TR',
+      publisher: {
+        '@type': 'Person',
+        name: personalInfo.name,
+      },
+    });
+    upsertJsonLd('faq-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: seoFaqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    });
   }, [meta]);
 
   return null;

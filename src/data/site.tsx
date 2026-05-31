@@ -8,7 +8,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import type { BlogPost, NavItem, ProcessStep, Project, SeoMeta, Service, Stat } from '../types/site';
+import type { BlogPost, FaqItem, NavItem, ProcessStep, Project, SeoMeta, Service, Stat } from '../types/site';
 
 export const personalInfo = {
   name: 'Fevzi Yeni',
@@ -34,11 +34,19 @@ export const navItems: NavItem[] = [
 
 export const seoPages: Record<string, SeoMeta> = {
   '/': {
-    title: 'Fevzi Yeni | Freelance Frontend Developer',
+    title: 'Web Sitesi Yaptırmak İsteyenler İçin Freelance Web Tasarım | Fevzi Yeni',
     description:
-      'React, TypeScript ve Tailwind CSS ile hızlı, modern, mobil uyumlu ve SEO temelli kurumsal web siteleri geliştiren freelance frontend developer.',
+      'Web sitesi yaptırmak isteyen işletmeler için modern, hızlı, mobil uyumlu ve SEO temelli kurumsal web sitesi tasarımı ve React frontend geliştirme hizmeti.',
     path: '/',
-    keywords: ['Fevzi Yeni', 'frontend developer', 'React developer', 'web tasarım', 'kurumsal web sitesi'],
+    keywords: [
+      'web sitesi yaptırmak',
+      'kurumsal web sitesi',
+      'freelance web tasarım',
+      'web sitesi tasarımı',
+      'React web sitesi',
+      'İstanbul web tasarım',
+      'Fevzi Yeni',
+    ],
   },
   '/hakkimda': {
     title: 'Hakkımda | Fevzi Yeni',
@@ -48,11 +56,17 @@ export const seoPages: Record<string, SeoMeta> = {
     keywords: ['Fevzi Yeni hakkında', 'freelance frontend developer', 'React TypeScript'],
   },
   '/hizmetler': {
-    title: 'Hizmetler | Kurumsal Web Sitesi ve Frontend Geliştirme',
+    title: 'Web Sitesi Hizmetleri | Kurumsal Web Tasarım ve React Frontend',
     description:
-      'Kurumsal web sitesi, marka web sitesi, React frontend geliştirme ve web görünürlük analizi hizmetleri.',
+      'İşletmeler için kurumsal web sitesi, çok sayfalı site yapısı, mobil uyumlu web tasarım, React frontend geliştirme ve SEO temel kurulumu.',
     path: '/hizmetler',
-    keywords: ['kurumsal web sitesi', 'React frontend geliştirme', 'web sitesi hizmetleri'],
+    keywords: [
+      'web sitesi hizmetleri',
+      'kurumsal web tasarım',
+      'mobil uyumlu web sitesi',
+      'React frontend geliştirme',
+      'SEO uyumlu web sitesi',
+    ],
   },
   '/projeler': {
     title: 'Projeler | Fevzi Yeni Portfolio',
@@ -69,13 +83,46 @@ export const seoPages: Record<string, SeoMeta> = {
     keywords: ['frontend blog', 'web tasarım blog', 'SEO notları'],
   },
   '/iletisim': {
-    title: 'İletişim | Fevzi Yeni',
+    title: 'Web Sitesi Teklifi Al | Fevzi Yeni İletişim',
     description:
-      'Kurumsal web sitesi, portfolio veya frontend geliştirme projeniz için Fevzi Yeni ile iletişime geçin.',
+      'Web sitesi yaptırmak, kurumsal site yenilemek veya React frontend geliştirme hizmeti almak için Fevzi Yeni ile iletişime geçin.',
     path: '/iletisim',
-    keywords: ['Fevzi Yeni iletişim', 'web sitesi teklifi', 'frontend developer iletişim'],
+    keywords: ['web sitesi teklifi', 'web tasarım teklifi', 'kurumsal site yaptırmak', 'Fevzi Yeni iletişim'],
   },
 };
+
+export const audienceCards = [
+  {
+    title: 'Web sitesi yaptırmak isteyen işletmeler',
+    text: 'Hizmetlerini profesyonel göstermek, Google aramalarından daha güvenilir görünmek ve ziyaretçiyi hızlı iletişime taşımak isteyen markalar için uygundur.',
+  },
+  {
+    title: 'Kurumsal site yenilemek isteyenler',
+    text: 'Eski, yavaş veya mobilde zayıf kalan siteleri daha modern, hızlı ve net mesaj veren bir yapıya dönüştürürüm.',
+  },
+  {
+    title: 'Kişisel marka ve portfolio sahipleri',
+    text: 'Uzmanlığını, projelerini ve iletişim kanallarını sade ama güçlü bir dijital vitrinle sunmak isteyen kişiler için özel sayfa yapısı kurarım.',
+  },
+];
+
+export const seoFaqs: FaqItem[] = [
+  {
+    question: 'Web sitesi yaptırmak isteyen biri nereden başlamalı?',
+    answer:
+      'Önce işletmenin hedefi, sunulan hizmetler, hedef müşteri profili ve iletişim aksiyonu netleşmelidir. Ardından sayfa yapısı, içerik akışı ve tasarım dili buna göre planlanır.',
+  },
+  {
+    question: 'Kurumsal web sitesi kaç sayfadan oluşmalı?',
+    answer:
+      'Çoğu işletme için anasayfa, hakkımızda, hizmetler, projeler veya referanslar, blog ve iletişim sayfaları iyi bir başlangıçtır. Gerektiğinde hizmet detay sayfaları eklenebilir.',
+  },
+  {
+    question: 'SEO uyumlu web sitesi için neler gerekir?',
+    answer:
+      'Hızlı açılan mobil uyumlu yapı, doğru başlık ve açıklamalar, temiz URL yapısı, sitemap, robots.txt, anlaşılır içerik ve kullanıcıyı doğru aksiyona yönlendiren sayfalar gerekir.',
+  },
+];
 
 export const stats: Stat[] = [
   { value: 'React', label: 'Modern frontend altyapısı' },
