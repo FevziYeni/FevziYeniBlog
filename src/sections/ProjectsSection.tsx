@@ -10,8 +10,8 @@ export default function ProjectsSection() {
         <div className="mb-12">
           <SectionHeader
             eyebrow="Projeler"
-            title="Freelance marka yolculuğumu ve ürettiğim web çalışmalarını burada topluyorum."
-            description="Bu alanı zamanla gerçek müşteri işleri, case study'ler ve canlı demo linkleriyle büyütebilirsin."
+            title="Yayına alınmış ve geliştirilmiş web çalışmalarım."
+            description="Her projede hızlı açılış, mobil uyum, temiz arayüz ve güven veren marka sunumu önceliklidir."
           />
         </div>
 
@@ -47,6 +47,16 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan-200 transition hover:text-white"
+                  >
+                    Canlı siteyi aç <ExternalLink className="h-4 w-4" />
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}

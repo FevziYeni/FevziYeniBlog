@@ -5,6 +5,13 @@ export type NavItem = {
   href: string;
 };
 
+export type SeoMeta = {
+  title: string;
+  description: string;
+  path: string;
+  keywords?: string[];
+};
+
 export type Service = {
   icon: ReactNode;
   title: string;
@@ -17,10 +24,8 @@ export type Project = {
   description: string;
   stack: string[];
   status: string;
-  demoUrl?: string;
-  repoUrl?: string;
+  liveUrl?: string;
 };
-
 export type BlogPost = {
   title: string;
   category: string;

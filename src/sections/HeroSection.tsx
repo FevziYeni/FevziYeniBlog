@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BadgeCheck, MessageCircle, ShieldCheck, Sparkles, Zap } from 'lucide-react';
+import { BadgeCheck, MessageCircle, Sparkles, Zap } from 'lucide-react';
 import Container from '../components/Container';
 import PrimaryButton from '../components/PrimaryButton';
 import { featureCards, personalInfo, stats } from '../data/site';
@@ -37,7 +37,7 @@ export default function HeroSection({ whatsappHref }: HeroSectionProps) {
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <PrimaryButton href="#projeler">Projeleri gör</PrimaryButton>
+              <PrimaryButton href="/projeler">Projeleri gör</PrimaryButton>
               <a
                 href={whatsappHref}
                 target="_blank"

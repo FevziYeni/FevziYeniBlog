@@ -8,7 +8,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import type { BlogPost, NavItem, ProcessStep, Project, Service, Stat } from '../types/site';
+import type { BlogPost, NavItem, ProcessStep, Project, SeoMeta, Service, Stat } from '../types/site';
 
 export const personalInfo = {
   name: 'Fevzi Yeni',
@@ -20,16 +20,62 @@ export const personalInfo = {
   linkedin: 'https://linkedin.com/in/fevzi-yeni',
   whatsappNumber: '905530583061',
   brandName: 'Fevzi Studio',
+  siteUrl: 'https://fevzi-yeni-blog.vercel.app',
 };
 
 export const navItems: NavItem[] = [
-  { label: 'Anasayfa', href: '#anasayfa' },
-  { label: 'Hakkımda', href: '#hakkimda' },
-  { label: 'Hizmetler', href: '#hizmetler' },
-  { label: 'Projeler', href: '#projeler' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'İletişim', href: '#iletisim' },
+  { label: 'Anasayfa', href: '/' },
+  { label: 'Hakkımda', href: '/hakkimda' },
+  { label: 'Hizmetler', href: '/hizmetler' },
+  { label: 'Projeler', href: '/projeler' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'İletişim', href: '/iletisim' },
 ];
+
+export const seoPages: Record<string, SeoMeta> = {
+  '/': {
+    title: 'Fevzi Yeni | Freelance Frontend Developer',
+    description:
+      'React, TypeScript ve Tailwind CSS ile hızlı, modern, mobil uyumlu ve SEO temelli kurumsal web siteleri geliştiren freelance frontend developer.',
+    path: '/',
+    keywords: ['Fevzi Yeni', 'frontend developer', 'React developer', 'web tasarım', 'kurumsal web sitesi'],
+  },
+  '/hakkimda': {
+    title: 'Hakkımda | Fevzi Yeni',
+    description:
+      'Fevzi Yeni’nin frontend geliştirme yaklaşımı, çalışma sistemi ve modern web sitesi üretim anlayışı.',
+    path: '/hakkimda',
+    keywords: ['Fevzi Yeni hakkında', 'freelance frontend developer', 'React TypeScript'],
+  },
+  '/hizmetler': {
+    title: 'Hizmetler | Kurumsal Web Sitesi ve Frontend Geliştirme',
+    description:
+      'Kurumsal web sitesi, marka web sitesi, React frontend geliştirme ve web görünürlük analizi hizmetleri.',
+    path: '/hizmetler',
+    keywords: ['kurumsal web sitesi', 'React frontend geliştirme', 'web sitesi hizmetleri'],
+  },
+  '/projeler': {
+    title: 'Projeler | Fevzi Yeni Portfolio',
+    description:
+      'Fevzi Yeni tarafından geliştirilen kurumsal web sitesi, kişisel marka ve frontend arayüz projeleri.',
+    path: '/projeler',
+    keywords: ['frontend projeleri', 'web tasarım portfolio', 'React portfolio'],
+  },
+  '/blog': {
+    title: 'Blog | Frontend ve Web Tasarım Notları',
+    description:
+      'Frontend geliştirme, web tasarım, SEO, dönüşüm odaklı arayüz ve dijital marka üzerine kısa notlar.',
+    path: '/blog',
+    keywords: ['frontend blog', 'web tasarım blog', 'SEO notları'],
+  },
+  '/iletisim': {
+    title: 'İletişim | Fevzi Yeni',
+    description:
+      'Kurumsal web sitesi, portfolio veya frontend geliştirme projeniz için Fevzi Yeni ile iletişime geçin.',
+    path: '/iletisim',
+    keywords: ['Fevzi Yeni iletişim', 'web sitesi teklifi', 'frontend developer iletişim'],
+  },
+};
 
 export const stats: Stat[] = [
   { value: 'React', label: 'Modern frontend altyapısı' },
@@ -47,9 +93,9 @@ export const services: Service[] = [
   },
   {
     icon: <Layers3 className="h-6 w-6" />,
-    title: 'Landing Page',
+    title: 'Çok Sayfalı Site Yapısı',
     description:
-      'Reklam, kampanya, randevu, ürün tanıtımı ve müşteri toplama odaklı tek sayfalık arayüzler hazırlarım.',
+      'Anasayfa, hizmetler, projeler, blog ve iletişim gibi sayfaları net bir mimariyle ayırırım.',
   },
   {
     icon: <Code2 className="h-6 w-6" />,
@@ -67,28 +113,31 @@ export const services: Service[] = [
 
 export const projects: Project[] = [
   {
-    title: 'Yerel İşletme Demo Site Sistemi',
-    category: 'Lead Generation / SaaS',
+    title: 'Yeni Rm İnşaat',
+    category: 'Kurumsal Web Sitesi',
     description:
-      'Yerel işletmeler için sektör bazlı demo landing page oluşturan, lead skoru ve müşteri takip süreciyle çalışan freelance satış sistemi.',
-    stack: ['React', 'TypeScript', 'Tailwind', 'Places API', 'CRM'],
-    status: 'Planlama',
+      'İnşaat sektöründe faaliyet gösteren firma için modern, güven veren, mobil uyumlu ve profesyonel kurumsal web sitesi çalışması.',
+    stack: ['React', 'TypeScript', 'Tailwind', 'Responsive UI'],
+    status: 'Canlıda',
+    liveUrl: 'https://www.yenirminsaat.com',
   },
   {
-    title: 'Freelance Marka Web Sitesi',
-    category: 'Portfolio / Blog',
+    title: 'Biz Aydın Grup',
+    category: 'Kurumsal Web Sitesi',
     description:
-      'Kişisel markamı, hizmetlerimi, projelerimi ve frontend notlarımı profesyonel şekilde sunmak için hazırladığım modern web sitesi.',
-    stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
-    status: 'Aktif',
+      'Firma hizmetlerini dijital ortamda sade, anlaşılır ve profesyonel şekilde sunmak için hazırlanmış modern kurumsal tanıtım sitesi.',
+    stack: ['React', 'TypeScript', 'Tailwind', 'Web Tasarım'],
+    status: 'Canlıda',
+    liveUrl: 'https://xn--bizaydngrup-4zb.com/',
   },
   {
-    title: 'Modern İşletme Landing Page Şablonu',
-    category: 'Template System',
+    title: 'Fevzi Yeni Portfolio',
+    category: 'Kişisel Marka / Portfolio',
     description:
-      'Kuaför, klinik, restoran, spor salonu ve yerel işletmeler için hızlıca özelleştirilebilir dönüşüm odaklı landing page şablonu.',
-    stack: ['React', 'Tailwind', 'Responsive UI', 'SEO'],
-    status: 'Geliştiriliyor',
+      'Freelance frontend developer kimliğimi, hizmetlerimi, projelerimi ve iletişim kanallarımı profesyonel şekilde sunmak için hazırladığım kişisel marka sitesi.',
+    stack: ['React', 'TypeScript', 'Tailwind', 'Vercel'],
+    status: 'Canlıda',
+    liveUrl: 'https://fevzi-yeni-blog.vercel.app',
   },
 ];
 
@@ -150,7 +199,7 @@ export const featureCards = [
   {
     icon: <Rocket className="h-6 w-6" />,
     title: 'Hızlı yayına alma',
-    text: 'Landing page ve kurumsal sitelerde hızlı teslim süreci.',
+    text: 'Kurumsal sitelerde hızlı, kontrollü ve temiz teslim süreci.',
   },
   {
     icon: <ShieldCheck className="h-6 w-6" />,

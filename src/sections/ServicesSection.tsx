@@ -12,7 +12,7 @@ export default function ServicesSection() {
             eyebrow="Hizmetler"
             title="Markanı internette daha profesyonel gösteren çözümler."
           />
-          <a href="#iletisim" className="font-bold text-cyan-200 transition hover:text-white">
+          <a href="/iletisim" className="font-bold text-cyan-200 transition hover:text-white">
             Hizmet teklifi al →
           </a>
         </div>

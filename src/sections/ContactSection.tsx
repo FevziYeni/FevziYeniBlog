@@ -1,4 +1,6 @@
 import { ArrowRight, Code2, Mail, MapPin, MessageCircle, Phone, Target } from 'lucide-react';
+import type { FormEvent } from 'react';
+import { useState } from 'react';
 import Container from '../components/Container';
 import { personalInfo } from '../data/site';
 
@@ -7,6 +9,35 @@ type ContactSectionProps = {
 };
 
 export default function ContactSection({ whatsappHref }: ContactSectionProps) {
+  const [form, setForm] = useState({
+    name: '',
+    contact: '',
+    projectType: '',
+    message: '',
+  });
+
+  const updateField = (field: keyof typeof form, value: string) => {
+    setForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const message = encodeURIComponent(
+      [
+        'Merhaba Fevzi, yeni bir web projesi için bilgi almak istiyorum.',
+        form.name ? `Adım: ${form.name}` : '',
+        form.contact ? `İletişim: ${form.contact}` : '',
+        form.projectType ? `Proje türü: ${form.projectType}` : '',
+        form.message ? `Not: ${form.message}` : '',
+      ]
+        .filter(Boolean)
+        .join('\n'),
+    );
+
+    window.open(`https://wa.me/${personalInfo.whatsappNumber}?text=${message}`, '_blank', 'noreferrer');
+  };
+
   return (
     <section id="iletisim" className="relative z-10 py-20">
       <Container>
@@ -46,22 +77,30 @@ export default function ContactSection({ whatsappHref }: ContactSectionProps) {
             </p>
             <h3 className="text-3xl font-black">Proje için mesaj bırak</h3>
 
-            <form className="mt-8 grid gap-4" onSubmit={(event) => event.preventDefault()}>
+            <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 md:grid-cols-2">
                 <input
+                  value={form.name}
+                  onChange={(event) => updateField('name', event.target.value)}
                   className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none ring-cyan-300 transition placeholder:text-slate-500 focus:ring-2"
                   placeholder="Adınız"
                 />
                 <input
+                  value={form.contact}
+                  onChange={(event) => updateField('contact', event.target.value)}
                   className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none ring-cyan-300 transition placeholder:text-slate-500 focus:ring-2"
                   placeholder="Telefon / E-posta"
                 />
               </div>
               <input
+                value={form.projectType}
+                onChange={(event) => updateField('projectType', event.target.value)}
                 className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none ring-cyan-300 transition placeholder:text-slate-500 focus:ring-2"
-                placeholder="Proje türü: Kurumsal site, landing page, blog..."
+                placeholder="Proje türü: Kurumsal site, portfolio, blog..."
               />
               <textarea
+                value={form.message}
+                onChange={(event) => updateField('message', event.target.value)}
                 className="min-h-36 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none ring-cyan-300 transition placeholder:text-slate-500 focus:ring-2"
                 placeholder="Kısaca neye ihtiyacınız var?"
               />
